@@ -88,6 +88,11 @@ blob_fixups: blob_fixups_user_type = {
             'libgrpc++_unsecure.so',
             'libgrpc++_unsecure_prebuilt.so'
         ),
+    (
+       'vendor/etc/media_codecs_parrot_v0.xml',
+       'vendor/etc/media_codecs_ravelin.xml',
+    ): blob_fixup()
+        .regex_replace('.+media_codecs_(google_audio|google_telephony|vendor_audio).+\n', ''),
 } # fmt: skip
 
 module = ExtractUtilsModule(
