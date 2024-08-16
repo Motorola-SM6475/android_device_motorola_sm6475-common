@@ -82,7 +82,12 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
         .add_needed('libcodec2_shim.so'),
     'vendor/lib64/sensors.moto.so': blob_fixup()
-          .add_needed('libbase_shim.so'),
+        .add_needed('libbase_shim.so'),
+    'vendor/bin/qcc-trd': blob_fixup()
+        .replace_needed(
+            'libgrpc++_unsecure.so',
+            'libgrpc++_unsecure_prebuilt.so'
+        ),
 } # fmt: skip
 
 module = ExtractUtilsModule(
