@@ -136,6 +136,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libpalclient:64
 
+# Mountpoints
+PRODUCT_PACKAGES += \
+    vendor_bt_firmware_mountpoint \
+    vendor_dsp_mountpoint \
+    vendor_firmware_mnt_mountpoint \
+    vendor_fsg_mountpoint \
+    vendor_super_fsg_mountpoint \
+    vendor_super_modem_mountpoint
+
 # Overlay
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
