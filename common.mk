@@ -121,6 +121,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libpalclient:64
 
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal-service.qti
+
 # Update engine
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
