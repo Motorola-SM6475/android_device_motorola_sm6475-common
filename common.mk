@@ -32,5 +32,12 @@ PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script
 
+# Boot control
+PRODUCT_PACKAGES += \
+    android.hardware.boot-service.qti \
+    android.hardware.boot-service.qti.recovery
+
+$(call soong_config_set, ufsbsg, ufsframework, bsg)
+
 # Inherit from vendor blobs
 $(call inherit-product, vendor/motorola/sm6475-common/sm6475-common-vendor.mk)
