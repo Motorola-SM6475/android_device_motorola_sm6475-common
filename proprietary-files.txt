@@ -473,10 +473,6 @@ vendor/etc/init/vendor.qti.media.c2audio@1.0-service.rc
 vendor/etc/media_parrot_v0/video_system_specs.json
 vendor/etc/media_parrot_v1/video_system_specs.json
 vendor/etc/media_parrot_v2/video_system_specs.json
-vendor/etc/seccomp_policy/c2audio.vendor.base-arm.policy
-vendor/etc/seccomp_policy/c2audio.vendor.base-arm64.policy
-vendor/etc/seccomp_policy/c2audio.vendor.ext-arm.policy
-vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy
 vendor/etc/seccomp_policy/codec2.vendor.base-arm64.policy
 vendor/etc/seccomp_policy/codec2.vendor.ext-arm64.policy
 vendor/etc/vintf/manifest/c2_manifest_vendor_audio.xml
