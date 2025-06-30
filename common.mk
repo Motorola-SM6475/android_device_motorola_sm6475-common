@@ -97,5 +97,15 @@ $(call soong_config_set, ufsbsg, ufsframework, bsg)
 # Charger
 WITH_LINEAGE_CHARGER := false
 
+# Display
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
+    init.qti.display_boot.rc \
+    init.qti.display_boot.sh \
+    gralloc.default:64 \
+    vendor.qti.hardware.display.allocator-service \
+    vendor.qti.hardware.display.composer-service \
+    vendor.qti.hardware.display.demura-service
+
 # Inherit from vendor blobs
 $(call inherit-product, vendor/motorola/sm6475-common/sm6475-common-vendor.mk)
