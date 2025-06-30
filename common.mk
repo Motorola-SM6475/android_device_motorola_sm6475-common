@@ -117,5 +117,9 @@ PRODUCT_PACKAGES += \
     IPACM_cfg.xml \
     IPACM_Filter_cfg.xml
 
+# Media
+PRODUCT_PACKAGES += \
+    libpalclient:64
+
 # Inherit from vendor blobs
 $(call inherit-product, vendor/motorola/sm6475-common/sm6475-common-vendor.mk)
