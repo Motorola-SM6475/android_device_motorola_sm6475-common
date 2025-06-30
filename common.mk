@@ -53,6 +53,7 @@ PRODUCT_PACKAGES += \
     libagm_compress_plugin:64 \
     libagm_mixer_plugin:64 \
     libagm_pcm_plugin:64 \
+    libpalclient:64 \
     libqcompostprocbundle:64 \
     libqcomvisualizer:64 \
     libqcomvoiceprocessing:64 \
