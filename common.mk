@@ -133,5 +133,9 @@ PRODUCT_PACKAGES += \
     update_engine_sideload \
     update_verifier
 
+# Vendor service manager
+PRODUCT_PACKAGES += \
+    vndservicemanager
+
 # Inherit from vendor blobs
 $(call inherit-product, vendor/motorola/sm6475-common/sm6475-common-vendor.mk)
