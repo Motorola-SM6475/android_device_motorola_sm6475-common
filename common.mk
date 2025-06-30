@@ -116,5 +116,11 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
     android.hardware.health-service.qti_recovery
 
+# IPACM
+PRODUCT_PACKAGES += \
+    ipacm \
+    IPACM_cfg.xml \
+    IPACM_Filter_cfg.xml
+
 # Inherit from vendor blobs
 $(call inherit-product, vendor/motorola/sm6475-common/sm6475-common-vendor.mk)
