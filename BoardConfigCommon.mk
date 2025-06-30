@@ -44,6 +44,10 @@ TARGET_NO_BOOTLOADER := true
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
 
+# GPS
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
+
+
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := parrot

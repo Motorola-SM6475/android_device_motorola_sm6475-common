@@ -114,6 +114,35 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fastbootd
 
+# GPS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@2.1-impl-qti:64 \
+    android.hardware.gnss-aidl-impl-qti:64 \
+    android.hardware.gnss-aidl-service-qti
+
+PRODUCT_PACKAGES += \
+    libbatching:64 \
+    libgeofencing:64 \
+    libgnss:64
+
+PRODUCT_PACKAGES += \
+    apdr.conf \
+    batching.conf \
+    gnss_antenna_info.conf \
+    gps.conf \
+    izat.conf \
+    lowi.conf \
+    sap.conf
+
+PRODUCT_PACKAGES += \
+    gnss@2.0-base.policy \
+    gnss@2.0-xtra-daemon.policy
+
+$(call soong_config_set, qtilocation, feature_nhz, false)
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
