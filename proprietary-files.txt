@@ -1,5 +1,10 @@
 # All unpinned blobs below are extracted from motorola/paros/paros:12/SUQ32HV-V1-ST14/4cd552:user/release-keys
 
+# Current blobs with ELF checks disabled:
+# libqtigefar depends on libar-pal, which is a gnu makefile target
+# libmcs depends on libagm, libar-acdb, libats, liblx-osal, which are gnu makefile targets
+# libqc2audio_hwaudiocodec depends on libpalclient, which is a gnu makefile target
+
 # ADSP
 vendor/bin/adsprpcd
 vendor/bin/loadalgo
@@ -189,11 +194,12 @@ vendor/lib64/libcv_common.so
 vendor/lib64/libcvp2_1.so
 
 # Diag
+system/lib64/vendor.qti.diaghal-V1-ndk.so
 system_ext/lib64/vendor.qti.diaghal@1.0.so
 vendor/bin/diag-router
 vendor/etc/init/vendor.qti.diag.rc
 vendor/etc/vintf/manifest/vendor.qti.diag.hal.service.xml
-vendor/lib64/vendor.qti.diaghal@1.0.so
+vendor/lib64/vendor.qti.diaghal@1.0.so;MODULE_SUFFIX=_vendor
 
 # Display (HDR)
 vendor/lib64/libhdr_backlight_adapter.so
@@ -276,7 +282,7 @@ vendor/bin/vendor.dpmd
 vendor/etc/dpm_vndr/vendor.dpm.conf
 vendor/etc/init/dpmQmiMgr.rc
 vendor/etc/init/vendor.dpmd.rc
-vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
+vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libdpmqmihal.so
 vendor/lib64/vendor.libdpmctmgr.so
 vendor/lib64/vendor.libdpmfdmgr.so
@@ -600,8 +606,8 @@ vendor/etc/init/init.qdmastats.rc
 vendor/lib64/hw/vendor.qti.hardware.qccvndhal@1.0-impl.so
 vendor/lib64/libgrpc++_unsecure.so:vendor/lib64/libgrpc++_unsecure_prebuilt.so
 vendor/lib64/libqcc_file_agent.so
-vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
-vendor/lib64/vendor.qti.hardware.qccsyshal@1.1.so
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.1.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.hardware.qccvndhal@1.0-halimpl.so
 vendor/lib64/vendor.qti.hardware.qccvndhal@1.0.so
 
@@ -661,9 +667,9 @@ vendor/bin/vendor.qti.qspmhal@1.0-service
 vendor/etc/init/vendor.qti.qspmhal@1.0-service.rc
 vendor/etc/seccomp_policy/qspm.policy
 vendor/lib/vendor.qti.qspmhal@1.0-impl.so
-vendor/lib/vendor.qti.qspmhal@1.0.so
+vendor/lib/vendor.qti.qspmhal@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.qspmhal@1.0-impl.so
-vendor/lib64/vendor.qti.qspmhal@1.0.so
+vendor/lib64/vendor.qti.qspmhal@1.0.so;MODULE_SUFFIX=_vendor
 
 # QTI service tracker
 vendor/bin/hw/vendor.qti.hardware.servicetracker@1.2-service
@@ -957,7 +963,7 @@ vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so
 vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so
 vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so
 vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so
-vendor/lib64/vendor.qti.imsrtpservice@3.0.so
+vendor/lib64/vendor.qti.imsrtpservice@3.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.ims.rcssip@1.0.so
 vendor/lib64/vendor.qti.ims.rcssip@1.1.so
 vendor/lib64/vendor.qti.ims.rcssip@1.2.so
