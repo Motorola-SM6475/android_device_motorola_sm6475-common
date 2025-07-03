@@ -163,6 +163,21 @@ PRODUCT_PACKAGES += \
     IPACM_cfg.xml \
     IPACM_Filter_cfg.xml
 
+# Overlay
+PRODUCT_ENFORCE_RRO_TARGETS := *
+
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage
+
+PRODUCT_PACKAGES += \
+    FrameworksResCommon \
+    SettingsCommon \
+    SystemUIResCommon \
+    TelephonyResCommon \
+    WifiResCommon \
+    FrameworksResTarget \
+    WifiResTarget
+
 # Telephony
 PRODUCT_PACKAGES += \
     extphonelib \
