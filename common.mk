@@ -176,6 +176,10 @@ PRODUCT_PACKAGES += \
     FrameworksResTarget \
     WifiResTarget
 
+# SecureElement
+PRODUCT_PACKAGES += \
+    android.hardware.secure_element@1.2-service-gto
+
 # Telephony
 PRODUCT_PACKAGES += \
     extphonelib \
