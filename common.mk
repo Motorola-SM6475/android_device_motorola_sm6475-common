@@ -185,6 +185,11 @@ PRODUCT_PACKAGES += \
     FrameworksResTarget \
     WifiResTarget
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    hardware/motorola
+
 # Telephony
 PRODUCT_PACKAGES += \
     extphonelib \
