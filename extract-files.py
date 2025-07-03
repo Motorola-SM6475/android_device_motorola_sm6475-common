@@ -30,9 +30,21 @@ namespace_imports = [
 
 
 libs_add_vendor_suffix = (
+    'vendor.qti.hardware.qccsyshal@1.0',
+    'vendor.qti.hardware.qccsyshal@1.1',
+    'vendor.qti.qspmhal@1.0',
+    'vendor.qti.imsrtpservice@3.0',
+    'vendor.qti.diaghal@1.0',
+    'com.qualcomm.qti.dpm.api@1.0',
 )
 
 libs_remove = (
+    'libar-pal',
+    'libar-acdb',
+    'liblx-osal',
+    'libats',
+    'libagm',
+    'libpalclient',
 )
 
 
