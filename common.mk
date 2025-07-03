@@ -136,6 +136,21 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libpalclient:64
 
+# Overlay
+PRODUCT_ENFORCE_RRO_TARGETS := *
+
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage
+
+PRODUCT_PACKAGES += \
+    FrameworksResCommon \
+    SettingsCommon \
+    SystemUIResCommon \
+    TelephonyResCommon \
+    WifiResCommon \
+    FrameworksResTarget \
+    WifiResTarget
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
