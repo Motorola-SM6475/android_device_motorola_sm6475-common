@@ -163,6 +163,13 @@ PRODUCT_PACKAGES += \
     IPACM_cfg.xml \
     IPACM_Filter_cfg.xml
 
+# NFC
+PRODUCT_PACKAGES += \
+    android.hardware.nfc-service.nxp \
+    com.android.nfc_extras \
+    nqnfcinfo \
+    Tag
+
 # Overlay
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
