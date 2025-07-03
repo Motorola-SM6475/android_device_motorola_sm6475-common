@@ -186,6 +186,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.2-service-gto
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    hardware/motorola
+
 # Telephony
 PRODUCT_PACKAGES += \
     extphonelib \
