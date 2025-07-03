@@ -182,6 +182,10 @@ PRODUCT_PACKAGES += \
     FrameworksResTarget \
     WifiResTarget
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power-service-qti
+
 # SecureElement
 PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.2-service-gto
