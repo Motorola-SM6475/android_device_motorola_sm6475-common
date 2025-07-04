@@ -119,6 +119,12 @@ $(foreach p, $(call to-upper, $(BOARD_MOT_DP_GROUP_PARTITION_LIST)), \
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := parrot
 
+# Properties
+TARGET_ODM_PROP += $(COMMON_PATH)/configs/properties/odm.prop
+TARGET_PRODUCT_PROP += $(COMMON_PATH)/configs/properties/product.prop
+TARGET_SYSTEM_PROP += $(COMMON_PATH)/configs/properties/system.prop
+TARGET_VENDOR_PROP += $(COMMON_PATH)/configs/properties/vendor.prop
+
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
 
