@@ -11,12 +11,10 @@ KERNEL_PATH := device/motorola/$(TARGET_DEVICE)-kernel
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
-    init_boot \
     odm \
     product \
     recovery \
     system \
-    system_dlkm \
     system_ext \
     vbmeta \
     vbmeta_system \
