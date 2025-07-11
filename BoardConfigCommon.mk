@@ -65,6 +65,37 @@ DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 DEVICE_MANIFEST_SKUS := parrot
 DEVICE_MANIFEST_PARROT_FILES += $(COMMON_PATH)/configs/vintf/manifest_parrot.xml
 
+# Kernel
+BOARD_BOOT_HEADER_VERSION := 4
+
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_RAMDISK_OFFSET := 0x01000000
+BOARD_DTB_OFFSET := 0x01f00000
+BOARD_TAGS_OFFSET := 0x00000100
+
+BOARD_KERNEL_IMAGE_NAME := Image
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_RAMDISK_USE_LZ4 := true
+TARGET_KERNEL_NO_GCC := true
+
+BOARD_BOOTCONFIG := \
+    androidboot.hardware=qcom \
+    androidboot.memcg=1 \
+    androidboot.usbcontroller=a600000.dwc3
+
+BOARD_KERNEL_CMDLINE := \
+    androidboot.selinux=permissive \
+    video=vfb:640x400,bpp=32,memsize=3072000 \
+    firmware_class.path=/data/vendor/firmware_mnt/image \
+    printk.devkmsg=on
+
+BOARD_MKBOOTIMG_ARGS += \
+    --dtb_offset $(BOARD_DTB_OFFSET) \
+    --header_version $(BOARD_BOOT_HEADER_VERSION) \
+    --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
+
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := parrot
