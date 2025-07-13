@@ -85,6 +85,12 @@
         <fqname>@2.3::IUceService/com.qualcomm.qti.uceservice</fqname>
     </hal>
     <hal format="hidl">
+        <name>motorola.hardware.camera.desktop</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ICameraDesktop/default</fqname>
+        <fqname>@2.0::ICameraDesktop/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.data.factory</name>
         <transport>hwbinder</transport>
         <fqname>@2.5::IFactory/default</fqname>

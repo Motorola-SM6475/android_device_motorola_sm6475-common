@@ -55,4 +55,20 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>motorola.hardware.camera.desktop</name>
+        <version>1.0</version>
+        <interface>
+            <name>ICameraDesktop</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>motorola.hardware.camera.desktop</name>
+        <version>2.0</version>
+        <interface>
+            <name>ICameraDesktop</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>
