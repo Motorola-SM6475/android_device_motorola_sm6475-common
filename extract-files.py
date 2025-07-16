@@ -1,6 +1,5 @@
-#!/usr/bin/env -S PYTHONPATH=../../../tools/extract-utils python3
 #
-# SPDX-FileCopyrightText: 2025 The LineageOS Project
+# SPDX-FileCopyrightText: 2024 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -13,9 +12,7 @@ from extract_utils.fixups_lib import (
     lib_fixups,
     lib_fixups_user_type,
 )
-
 from extract_utils.main import (
-    ExtractUtils,
     ExtractUtilsModule,
 )
 
@@ -45,6 +42,7 @@ libs_remove = (
     'libats',
     'libagm',
     'libpalclient',
+    'libwpa_client',
 )
 
 
@@ -63,32 +61,50 @@ lib_fixups: lib_fixups_user_type = {
 
 
 blob_fixups: blob_fixups_user_type = {
-    ('vendor/bin/hw/android.hardware.security.keymint-service-qti', 'vendor/lib64/libqtikeymint.so'): blob_fixup()
-        .add_needed('android.hardware.security.rkp-V1-ndk.so')
-        .replace_needed(
-            'android.hardware.security.keymint-V1-ndk_platform.so',
-            'android.hardware.security.keymint-V1-ndk.so',
-        )
-        .replace_needed(
-            'android.hardware.security.secureclock-V1-ndk_platform.so',
-            'android.hardware.security.secureclock-V1-ndk.so',
-        )
-        .replace_needed(
-            'android.hardware.security.sharedsecret-V1-ndk_platform.so',
-            'android.hardware.security.sharedsecret-V1-ndk.so',
-        ),
-    'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
-        .add_needed('libhidlbase_shim.so'),
-    'vendor/lib64/libqcodec2_core.so': blob_fixup()
-        .add_needed('libcodec2_shim.so'),
-    'vendor/lib64/sensors.moto.so': blob_fixup()
-        .add_needed('libbase_shim.so'),
-    'vendor/bin/qcc-trd': blob_fixup()
-        .replace_needed(
-            'libgrpc++_unsecure.so',
-            'libgrpc++_unsecure_prebuilt.so'
-        ),
-} # fmt: skip
+    'system_ext/etc/permissions/moto-telephony.xml': blob_fixup().regex_replace(
+        '/system/', '/system_ext/'
+    ),
+    (
+        'vendor/bin/hw/android.hardware.security.keymint-service-qti',
+        'vendor/lib64/libqtikeymint.so',
+    ): blob_fixup()
+    .replace_needed(
+        'android.hardware.security.keymint-V1-ndk_platform.so',
+        'android.hardware.security.keymint-V1-ndk.so',
+    )
+    .replace_needed(
+        'android.hardware.security.secureclock-V1-ndk_platform.so',
+        'android.hardware.security.secureclock-V1-ndk.so',
+    )
+    .replace_needed(
+        'android.hardware.security.sharedsecret-V1-ndk_platform.so',
+        'android.hardware.security.sharedsecret-V1-ndk.so',
+    )
+    .add_needed('android.hardware.security.rkp-V1-ndk.so'),
+    'vendor/bin/qcc-trd': blob_fixup().replace_needed(
+        'libgrpc++_unsecure.so', 'libgrpc++_unsecure_prebuilt.so'
+    ),
+    'vendor/lib64/libmotext_inf.so': blob_fixup().remove_needed('libril.so'),
+    'vendor/lib64/vendor.libdpmframework.so': blob_fixup().add_needed(
+        'libhidlbase_shim.so'
+    ),
+    'vendor/lib64/libqcodec2_core.so': blob_fixup().add_needed(
+        'libcodec2_shim.so'
+    ),
+    'vendor/lib64/sensors.moto.so': blob_fixup().add_needed('libbase_shim.so'),
+    (
+        'vendor/etc/seccomp_policy/atfwd@2.0.policy',
+        'vendor/etc/seccomp_policy/modemManager.policy',
+        'vendor/etc/seccomp_policy/sensors-qesdk.policy',
+    ): blob_fixup().add_line_if_missing('gettid: 1'),
+    (
+        'vendor/lib64/libqcrilNr.so',
+        'vendor/lib64/libril-db.so',
+    ): blob_fixup().binary_regex_replace(
+        rb'persist\.vendor\.radio\.poweron_opt',
+        b'persist.vendor.radio.poweron_ign',
+    ),
+}
 
 module = ExtractUtilsModule(
     'sm6475-common',
@@ -97,7 +113,3 @@ module = ExtractUtilsModule(
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
 )
-
-if __name__ == '__main__':
-    utils = ExtractUtils.device(module)
-    utils.run()
